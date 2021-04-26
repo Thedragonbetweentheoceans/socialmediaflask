@@ -1,0 +1,157 @@
+body {
+    background-color: #fae157;
+}
+
+.menu{
+   
+    background-color: rgba(255, 187, 0, 0.876);
+    position: fixed; 
+    margin-top:0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.menu nav{
+    background-color: rgba(255, 187, 0, 0.876);
+    text-align: center;
+    margin:auto;
+    
+}
+.menu li{
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    color:#54451d;
+    
+}
+
+.menu a{
+    text-decoration: none;
+    color:#54451d;
+}
+
+.content{
+    padding:100px;
+    text-align:left;
+}
+
+.input{
+    height: 40px;
+    width: 160px;
+    background-color: rgb(238, 197, 100);
+    border: none;
+}
+
+.submit{
+    height: 40px;
+    width: 60px;
+    border-radius: 20%;
+    border: none;
+    background-color: rgb(238, 197, 100);
+
+}
+
+.submit_button{
+    border-radius: 20%;
+    border: none;
+    background-color: #fae157;
+}
+
+.submit_button :hover{
+    background-color:#e09e84;
+}
+
+.settings_ul{
+    display: none;
+    position:fixed;
+    
+}
+.settings:hover .settings_ul {
+    display:block;
+}
+
+.settings_ul li{
+    display:block;
+    width: 100px;
+    height: 30px;
+    background-color:#f0a243;
+    border-radius: 20%;
+}
+
+.profile_details img{
+    height:300px;
+    width: 300px;
+    margin-top:30px;
+    margin-left:50px;
+}
+
+.profile_details h1{
+   text-align:center;
+}
+.profile_details{
+    display:block;
+    margin:auto;
+}
+
+.profile_description {
+    margin:auto;
+    text-align:center;
+    margin-top:150px;
+    padding:20px;
+}
+
+.profile{
+    background-color: chocolate;
+    width:400px;
+    margin:auto;
+    
+}
+.profile a{
+    color:black;
+}
+
+.likedislike{
+
+    background-color: chocolate;
+    width:400px;
+    margin:auto;
+    padding: 40px;
+}
+
+.likedislike button{
+
+    background-color: chocolate;
+    border:none;
+}
+
+.postSomething{
+
+
+    margin:auto;
+    padding: 40px;
+    text-align: center;
+}
+.search{
+    margin:auto;
+    height:50px;
+    text-align: center;
+    background-color:rgba(255, 187, 0, 0.876);
+    color:#85651c;
+}
+.search_bar{
+    height: 40px;
+    padding:5px;
+    width: 160px;
+    background-color:rgba(255, 187, 0, 0.876);
+    border: none;
+    
+}
+
+.submit_search{
+    height: 40px;
+    width: 60px;
+    border-radius: 20%;
+    border: none;
+    background-color: rgba(255, 187, 0, 0.876);
+    color:#8b6919;
+}

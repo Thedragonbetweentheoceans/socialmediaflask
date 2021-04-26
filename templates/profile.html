@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block body %}
+
+
+
+
+<div class="profile">
+    <div class="profile_details">
+        <img src="data:usrDB.mimetype;base64,{{ base64.b64encode(usrDB.img).decode('utf-8') }}"/></p>
+        <a href="changeprofilepic"><i class="fas fa-image"></i> |Change|</a>
+        <h1><u>{{userName}}</u></h1> 
+    </div>
+    
+    <div class="profile_description">
+        <h2>{{userDescription}}</h2>
+        <a href="changeprofiledescript"><i class="fas fa-pen-fancy"></i> |Change|</a>
+    </div>
+</div>
+
+<div class="postSomething">
+    <form action="http://127.0.0.1:5000/profile" method="POST">
+        <input type="text"  class="input" name="post" placeholder="Something to say?">
+        <input type="submit" class="submit" value="Say it!">
+    </form>
+</div>
+
+<div class="likedislike">
+    {% for k in range(i)%}
+    <p id="{{k+1}}">{{postOnWebsite[k].post}}</p>
+    
+    <div style="display: flex; text-align:center;">
+
+        
+        <button onclick=like({{k+1}}) ><i class="fas fa-thumbs-up"></i></button><p style="width: 30px;text-align: center;" id="{{k+1}}likes">{{postOnWebsite[k].likes}}</p>
+        <button onclick=dislike({{k+1}})><i class="fas fa-thumbs-down"></i></button><p style="width: 30px;text-align: center;" id="{{k+1}}dislikes">{{postOnWebsite[k].dislikes}}</p>
+
+        {% for h in range(numberOfRepetition)%}
+
+            {% if fromDB[h].postId == postOnWebsite[k].post %}
+
+                {% if fromDB[h].likeordislike == 1%}
+                    <script>document.getElementById("{{k+1}}likes").style.color = "green" </script>
+
+                {% endif %}
+
+                {% if fromDB[h].likeordislike == 0%}
+                    <script>document.getElementById("{{k+1}}dislikes").style.color = "red" </script>
+
+                {% endif %}
+
+            {% endif %}
+
+        {% endfor %}
+
+        <script>
+            function like(a) {
+                var numberOfLikesAdded = 1;
+                var numberOfDislikesAdded = 0;
+                var whatPost = document.getElementById(a).innerHTML;
+               
+                //console.log(a);
+                $.post("/likeanddislikesprofile", {"like": numberOfLikesAdded, "whatPost":whatPost, "dislike":numberOfDislikesAdded})
+            }
+            
+            function dislike(c) {
+                var numberOfDislikesAdded = 1;
+                var numberOfLikesAdded = 0;
+                var whatPost = document.getElementById(c).innerHTML
+                //console.log(c);
+                $.post("/likeanddislikesprofile", {"like": numberOfLikesAdded, "whatPost":whatPost, "dislike":numberOfDislikesAdded})
+            }
+
+        </script>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

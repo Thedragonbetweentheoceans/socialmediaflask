@@ -1,0 +1,10 @@
+{% extends "settingspagebase.html" %}
+
+{% block title %}Change pic{% endblock %}
+{% block body %}
+<img class="profile_image" src="data:usrDB.mimetype;base64,{{ base64.b64encode(usrDB.img).decode('utf-8') }}"/></p>
+<form class="form" action="http://127.0.0.1:5000/changeprofilepic" enctype="multipart/form-data" method="POST">
+    <input type="file" name="changePic" placeholder="Change profile picture">
+    <button class="button"><input type="submit" class="submit" value="Send"></button>
+</form> 
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Signup{% endblock %}
+
+{% block body %}
+
+
+<form action="http://localhost:5000/signup" enctype="multipart/form-data" method="POST">
+    <input class="input" type="text" name="first_name" placeholder="First name...">
+    <input class="input" type="text" name="last_name" placeholder="Last name...">
+    <input class="input" type="text" name="signup_usr" placeholder="Username...">
+    <input class="input" type="password" name="signup_pass" placeholder="Password...">
+    <input class="input" type="text" name="mail" placeholder="Mail...">
+    <input type="file" name="pic">
+    <button class="submit_button"><input type="submit" class="submit" value="Send"></button>
+</form>
+
+{% if get_flashed_messages()%}
+<h1>{{ get_flashed_messages() }}</h1>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block search %}
+<div class="search">
+    <form action="http://127.0.0.1:5000/otheruserprofile" method="POST">
+        <form action="" method="POST">
+        <i class="fas fa-users"></i>
+        <input class="search_bar" type="text" name="searchedUser" placeholder="Who you want to search?">
+        <i class="fas fa-search"></i>
+        <input class="submit_search" type="submit" value="Search!">
+    </form>
+</div>
+{% endblock %}
+
+{% block body %}
+<div style="height:100px;"></div>
+{% if userInSession%}
+
+<div class="postSomething">
+    <form action="http://127.0.0.1:5000/profile" method="POST">
+        <input type="text"  class="input" name="post" placeholder="Something to say?">
+        <input type="submit" class="submit" value="Say it!">
+    </form>
+</div>
+
+
+{% endif %}
+
+<div class="likedislike">
+    {% for k in range(i)%}
+    <div style="display: flex;">
+        <p id="{{k+1}}" >{{postOnWebsite[k].post}}</p>
+        <p style="width: 30px;text-align: center;" >~</p>
+        <p><i>{{postOnWebsite[k].username}}</i></p>
+    </div>
+    
+    <div style="display: flex; text-align:center;">
+        <button onclick=like({{k+1}}) ><i class="fas fa-thumbs-up"></i></button><p style="width: 30px;text-align: center;" id="{{k+1}}likes">{{postOnWebsite[k].likes}}</p>
+        <button onclick=dislike({{k+1}})><i class="fas fa-thumbs-down"></i></button><p style="width: 30px;text-align: center;" id="{{k+1}}dislikes">{{postOnWebsite[k].dislikes}}</p>
+        
+        {% if userInSession %}
+
+            {% for h in range(numberOfRepetition)%}
+
+                {% if fromDB[h].postId == postOnWebsite[k].post %}
+
+                    {% if fromDB[h].likeordislike == 1%}
+                        <script>document.getElementById("{{k+1}}likes").style.color = "green" </script>
+
+                    {% endif %}
+
+                    {% if fromDB[h].likeordislike == 0%}
+                        <script>document.getElementById("{{k+1}}dislikes").style.color = "red" </script>
+
+                    {% endif %}
+
+                {% endif %}
+
+            {% endfor %}
+
+        {% endif %}
+
+        <script>
+            function like(a) {
+                var numberOfLikesAdded = 1;
+                var numberOfDislikesAdded = 0;
+                var whatPost = document.getElementById(a).innerHTML
+                //console.log(a);
+                $.post("/likeanddislikesprofile", {"like": numberOfLikesAdded, "whatPost":whatPost, "dislike":numberOfDislikesAdded})
+            }
+        
+            function dislike(c) {
+                var numberOfDislikesAdded = 1;
+                var numberOfLikesAdded = 0;
+                var whatPost = document.getElementById(c).innerHTML
+                //console.log(c);
+                $.post("/likeanddislikesprofile", {"like": numberOfLikesAdded, "whatPost":whatPost, "dislike":numberOfDislikesAdded})
+            }
+        </script>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

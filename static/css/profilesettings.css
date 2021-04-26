@@ -1,0 +1,61 @@
+body {
+    background-color: #fae157;
+}
+
+.profile{
+    background-color: chocolate;
+    width:400px;
+    margin:auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+.submit{
+    height: 40px;
+    width: 60px;
+    border-radius: 20%;
+    border: none;
+    background-color: rgb(238, 197, 100);
+
+}
+
+.button{
+    border-radius: 20%;
+    border: none;
+    background-color: chocolate;
+    color:coral
+}
+
+.button :hover{
+    background-color:#e09e84;
+}
+
+.profile_image{
+    height:300px;
+    width: 300px;
+    margin-top:30px;
+    margin-left:50px;
+}
+
+.back_button{
+    height: 40px;
+    width: 60px;
+    border-radius: 20%;
+    border: none;
+    background-color: chocolate;
+}
+
+.form{
+    padding:30px;
+    margin-bottom:30px;
+}
+
+.description{
+    height:100px;
+    width:200px;
+    background-color:#f5d47a;
+    border:none;
+    
+}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Sign in{%endblock%}
+
+{% block body %}
+
+    <form action="#" method="POST">
+        <input class="input" type="text" name="signin_usr" placeholder="Username...">
+        <input class="input" type="password" name="signin_pass" placeholder="Password...">
+        <button class="submit_button"><input type="submit" class="submit" value="Send"></button>
+    </form>
+
+    <body>
+       {% if get_flashed_messages()%}
+        <h1>{{ get_flashed_messages() }}</h1>
+        {% endif %}
+      </body>
+
+{%endblock%}

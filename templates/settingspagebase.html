@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title%}{% endblock %}</title>
+        <link type="text/css" href="{{ url_for('static', filename='css/profilesettings.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+
+    <body>
+       <div class="profile">
+           <button class="back_button"><a href="profile"><i class="fas fa-arrow-left"></i></a></button>
+        {% block body %}{% endblock %}
+       </div>
+    </body>
+    
+
+</html>

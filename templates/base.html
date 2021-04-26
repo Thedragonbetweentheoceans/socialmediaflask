@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %} {% endblock %}
+        </title>
+        <link type="text/css" href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"></script>
+        <script src="{{url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
+    </head>
+    <body>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="home"><h1><i class="fas fa-home"></i> Home</h1></a></li>
+                    <li><a href="profile"><h1><i class="fas fa-user-circle"></i>  Profile</h1></a></li>
+                    <li class="settings">
+                        <a href="#"><h1><i class="fas fa-bars"></i>  Settings</h1></a>
+                        <ul class="settings_ul">
+                            <li><a href="signin"><h1>Signin</h1></a></li>
+                            <li><a href="signout"><h1>Signout</h1></a></li>
+                            <li><a href="signup"><h1>Signup</h1></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            {% block search%}{% endblock %}
+        </div>
+        
+       <div class="content">
+        {% block body %} {% endblock %}
+       </div>
+    </body>
+</html>

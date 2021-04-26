@@ -1,0 +1,9 @@
+{% extends "settingspagebase.html" %}
+
+{% block title %}Tell about you{% endblock %}
+{% block body %}
+<form class="form" action="http://127.0.0.1:5000/changeprofiledescript"  method="POST">
+    <input class="description" type="text" name="changeDescrip" placeholder="Write something about you...">
+    <button class="button"><input type="submit" class="submit" value="Send"></button>
+</form>
+{% endblock %}
