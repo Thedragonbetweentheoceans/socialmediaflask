@@ -170,7 +170,9 @@ def otheruserprofile():
         if fromDB:
             userName = fromDB.username
             userDescription = fromDB.description
-            
+        else:
+            return render_template("nouserfound.html")
+        
         selectPost = Post.query.filter_by(username=searchedUser).all()
         i=0
         for i in range(len(selectPost)):
@@ -189,6 +191,7 @@ def otheruserprofile():
             return render_template("otheruserprofile.html", userName=userName, userDescription=userDescription, base64=base64, usrDB=fromDB, postOnWebsite = selectPost, i = i, numberOfRepetition = k, postToLike = postToLike, userInSession=userInSession)
         else:
             return render_template("otheruserprofile.html", userName=userName, userDescription=userDescription, base64=base64, usrDB=fromDB, postOnWebsite = selectPost, i = i, userInSession=userInSession)
+        
 
 
 @app.route("/likeanddislikesprofile", methods=["POST" , "GET"])
