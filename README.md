@@ -1,9 +1,11 @@
-#socialplatform
+# Not realy facebook
 
-This is a localhost made social media platform made by me using flask.
+Here by using Flask I tried to make a website that simulates a social medial.
 
-Things to be added: 
-- the posibility to add friends
-- the posibility to comment on someone's post
-- a notification center
-- a chat system
+On the website you can:
+
+- make a profile
+- make posts(without photos)
+- like or dislike a post of other user
+- search for other user
+
